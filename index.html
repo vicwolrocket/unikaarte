@@ -30,17 +30,45 @@ td{
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/brython@3.10.0/brython_stdlib.js">
     </script>
-	<h1>Jou eie Unikaart maker</h1>
-
+	
+    
+	<h1 style="color:blue;font-size:40px;"><b>Jou eie Unikaart maker</b></h1>
 	<input type="text" id="name" placeholder="Tik in jou naam">
+	<h1 id="geslag">Wat is jou geslag?</h1>
+	<button id="geslag-seun">🔵 Manlik</button>
+	<button id="geslag-dogter">❤️️ Vroulik</button>
 	<h1></h1>
-	<input type="number" id="sport" placeholder="Sport" max="100" min="0">
+    <h1 id="gk">Gelaatskleur</h1>
+	<button id="v1">👍🏻</button>
+	<button id="v2">👍🏼</button>
+	<button id="v3">👍🏽</button>
+	<button id="v4">👍🏾</button>
+	<button id="v5">👍🏿</button>
 	<h1></h1>
-	<input type="number" id="culture" placeholder="Kultuur" max="100" min="0">
+	<h1>Wat is jou hare se kleur?</h1>
+	<select name="Hare kleaur" id="hare">
+    <option value="swart">Swart</option>
+    <option value="bruin">Bruin</option>
+    <option value="blond">Blond</option>
+    <option value="grys">Grys</option>
+    </select>
+	<h1>Wat is jou oog kleur?</h1>
+	<select name="Oog kleur" id="oog">
+    <option value="swart">Bruin</option>
+    <option value="bruin">Blou</option>
+    <option value="blond">Groen</option>
+    </select>
+	
+
+	
+	<h1>Sport vlak</h1>
+	<input type="number" id="sport" value="0" max="100" min="0">
+	<h1>Kultuur vlak</h1>
+	<input type="number" id="culture" value="0" max="100" min="0">
+	<h1>Akademie vlak</h1>
+	<input type="number" id="school" value="0" max="100" min="0">
 	<h1></h1>
-	<input type="number" id="school" placeholder="Akademie" max="100" min="0">
-	<h1></h1>
-	<button id="submit">Click Me!</button>
+	<button id="submit">Dien in jou kaart</button>
 </head>
 
 <body onload="brython()">
@@ -50,6 +78,7 @@ td{
 #########################################################################################################################################
 from browser import *
 import datetime
+
 
 
 
@@ -64,6 +93,7 @@ def submit(ev):
     imageb = imageb.replace('&lt;C&gt;', document["school"].value)
     imageb = imageb.replace('Copyright Unikaarte', f'Copyright Unikaarte {datetime.datetime.now().year}')
     document <= imageb
+
 	
 document["submit"].bind("click", submit)
 
@@ -71,9 +101,48 @@ document["submit"].bind("click", submit)
 ##########################################################################################################################################
 
 
+##### Vel kleur
+def v1(event):
+    document["gk"].textContent = "Gelaatskleur 👍🏻"
+
+document["v1"].bind("click", v1)
+
+def v2(event):
+    document["gk"].textContent = "Gelaatskleur 👍🏼"
+
+document["v2"].bind("click", v2)
+
+def v3(event):
+    document["gk"].textContent = "Gelaatskleur 👍🏽"
+
+document["v3"].bind("click", v3)
+
+def v4(event):
+    document["gk"].textContent = "Gelaatskleur 👍🏾"
+
+document["v4"].bind("click", v4)
+
+def v5(event):
+    document["gk"].textContent = "Gelaatskleur 👍🏿"
+
+document["v5"].bind("click", v5)
+
+
+def manlik(event):
+    document["geslag"].textContent = "Wat is jou geslag? 🔵"
+	
+document["geslag-seun"].bind("click", manlik)
+
+def vroulik(event):
+    document["geslag"].textContent = "Wat is jou geslag? ❤️️"
+	
+document["geslag-dogter"].bind("click", vroulik)
+
 </script>
 
 
 </body>
+    
 
 </html>
+
