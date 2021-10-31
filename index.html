@@ -1,4 +1,6 @@
 <html>
+    <!-- COPYRIGHT VICWOLROCKET 2021 -->
+	<!-- SEE THE LICENSE FILE FOR MORE INFO -->
 
 <style>
 *{
@@ -66,7 +68,7 @@ td{
         src="https://cdn.jsdelivr.net/npm/brython@3.10.0/brython_stdlib.js">
     </script>
 	
-    
+
 	<h1 style="color:blue;font-size:40px;"><b>Jou eie Unikaart maker</b></h1>
 	<input type="text" id="name" placeholder="Tik in jou naam">
 	<h1 id="geslag">Wat is jou geslag?</h1>
@@ -80,15 +82,15 @@ td{
 	<button id="v4">👍🏾</button>
 	<button id="v5">👍🏿</button>
 	<h1></h1>
-	<h1>Wat is jou hare se kleur?</h1>
-	<select name="Hare kleaur" id="hare">
+	<h1>Wat is jou haarkleur?</h1>
+	<select name="Haarkleur" id="hare">
     <option value="swart">Swart</option>
     <option value="bruin">Bruin</option>
     <option value="blond">Blond</option>
     <option value="grys">Grys</option>
     </select>
-	<h1>Wat is jou oog kleur?</h1>
-	<select name="Oog kleur" id="oog">
+	<h1>Wat is jou oëkleur?</h1>
+	<select name="Oëkleur" id="oog">
     <option value="swart">Bruin</option>
     <option value="bruin">Blou</option>
     <option value="blond">Groen</option>
@@ -104,6 +106,8 @@ td{
 	<input type="number" id="school" value="0" max="100" min="0">
 	<h1></h1>
 	<button id="submit">Dien in jou kaart</button>
+	<label for="files" class="btn">Select Image</label>
+    <input id="files" style="visibility:hidden;" type="file">
 </head>
 
 <body onload="brython()">
@@ -113,7 +117,8 @@ td{
 #########################################################################################################################################
 from browser import *
 import datetime
-
+print('COPYRIGHT VICWOLROCKET 2021')
+print('SEE THE LICENSE FILE FOR MORE INFO')
 
 
 
@@ -127,9 +132,7 @@ def submit(ev):
     imageb = imageb.replace('&lt;B&gt;', document["culture"].value)
     imageb = imageb.replace('&lt;C&gt;', document["school"].value)
     imageb = imageb.replace('Copyright Unikaarte', f'Copyright Unikaarte {datetime.datetime.now().year}')
-    document <= imageb
-
-	
+    print(f'SVG file:\n{imageb}')
 document["submit"].bind("click", submit)
 
 
@@ -162,7 +165,7 @@ def v5(event):
 
 document["v5"].bind("click", v5)
 
-
+######
 def manlik(event):
     document["geslag"].textContent = "Wat is jou geslag? 🔵"
 	
@@ -172,6 +175,11 @@ def vroulik(event):
     document["geslag"].textContent = "Wat is jou geslag? ❤️️"
 	
 document["geslag-dogter"].bind("click", vroulik)
+
+########
+#def show_card(event):
+#    document["zone9"].clear()
+#    document["zone9"] <= html.IMG(src=logo, height=50)
 
 </script>
 
